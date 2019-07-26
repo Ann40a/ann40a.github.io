@@ -1,0 +1,16 @@
+.cards-list {
+  margin-left: -24px;
+  margin-top: -24px;
+
+  > * {
+    float: left;
+    margin-left: 24px;
+    margin-top: 24px;
+  }
+
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
