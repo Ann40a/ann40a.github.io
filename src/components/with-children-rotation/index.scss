@@ -1,0 +1,7 @@
+@import "../../styles/mixins/rotation-container";
+
+.with-children-rotation {
+  &-45deg {
+    @include rotation-container(45);
+  }
+}

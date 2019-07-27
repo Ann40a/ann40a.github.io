@@ -1,0 +1,25 @@
+@import "../../styles/functions/math";
+@import "../../styles/mixins/reset";
+@import "../../components/ribbon/variables";
+
+$view-code-rotation-deg: 45;
+
+.app-right-corner-ribbon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: inline-block;
+
+  .content {
+    $line-height: 1em;
+    $ribbon-height: $ribbon-vertical-indents-sum + $line-height;
+    $hidden-corner-width: truncated-sin-deg($view-code-rotation-deg) * $ribbon-height;
+
+    line-height: $line-height;
+    padding: 0 $hidden-corner-width + $ribbon-stitches-padding;
+  }
+}
+
+
+
+
