@@ -1,0 +1,37 @@
+@import "../mixins/element-size";
+@import "../functions/math";
+
+@mixin rotation-container($angle) {
+  $scale: truncated-sin-deg($angle);
+
+  $container-translation-distance: 0;
+  $element-translation-distance: 0;
+
+  @if $angle == 45 {
+    // TODO: calculate these numbers using $angle
+    $container-translation-distance: 20.7%;
+    $element-translation-distance: 130%;
+  }
+  @else {
+    @error "The angle #{$angle} is not supported.";
+  }
+
+  overflow: hidden;
+  transform: scale($scale) translateX($container-translation-distance) translateY(-$container-translation-distance);
+
+  @include square-container(".rotation-area-size-container");
+  @include square-container(".rotatable-container");
+
+  .rotation-area-size-container {
+    margin: 0;
+  }
+
+  .rotatable-container {
+    transform: rotate($angle * 1deg);
+  }
+
+  .rotatable-element {
+    display: block;
+    transform: translateY(-$element-translation-distance) scale(1 / $scale);
+  }
+}

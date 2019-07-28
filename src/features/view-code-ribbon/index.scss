@@ -1,0 +1,7 @@
+@import "../../styles/mixins/reset";
+
+.view-code-link {
+  @include reset-link;
+
+  font-weight: bold;
+}

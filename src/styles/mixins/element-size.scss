@@ -1,0 +1,14 @@
+/// Create a square container with sides equal to its width.
+///
+/// This uses the fact, that that percentage paddings, even for padding-top and padding-bottom,
+/// are always defined as percentages of the width of the element's container.
+/// For more explanations see: https://stackoverflow.com/a/47860039/5536938
+@mixin square-container($helper-selector) {
+  display: table;
+
+  @at-root #{$helper-selector} {
+    padding: 50% 0;
+    height: 0;
+    margin-top: -50%;
+  }
+}

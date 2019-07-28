@@ -1,0 +1,10 @@
+@import "../../styles/mixins/ribbon";
+@import "./variables";
+
+.ribbon-red {
+  @include ribbon($ribbon-red-color);
+}
+
+.ribbon-black {
+  @include ribbon($ribbon-black-color);
+}

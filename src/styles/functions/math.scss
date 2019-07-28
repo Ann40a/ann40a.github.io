@@ -1,0 +1,36 @@
+@function truncated-sin-deg($value) {
+  @if $value == 0 {
+    @return 0;
+  }
+  @else if $value == 30 {
+    @return 0.5;
+  }
+  @else if $value == 45 {
+    @return 0.70711;
+  }
+  @else if $value == 60 {
+    @return 0.86603;
+  }
+  @else if $value == 90 {
+    @return 1;
+  }
+  @else if $value > 90 and $value <= 180 {
+    @return truncated-sin-deg(180 - $value);
+  }
+  @else if $value > 180 and $value <= 360 {
+    @return -1 * truncated-sin-deg($value - 180);
+  }
+  @else if $value > 360 {
+    @return truncated-sin-deg($value % 360);
+  }
+  @else if $value < 0 {
+    @return -1 * truncated-sin-deg(-$value);
+  }
+  @else {
+    @error "The value #{$value} is not supported.";
+  }
+}
+
+@function truncated-cos-deg($value) {
+  @return truncated-sin-deg($value + 90);
+}

@@ -1,0 +1,46 @@
+$ribbon-gradient-color: #000 !default;
+
+$ribbon-shadow-color: rgba(#000, 0.25) !default;
+$ribbon-shadow-y-offset: 2px !default;
+$ribbon-shadow-blur: 4px !default;
+$ribbon-shadow: 0 $ribbon-shadow-y-offset $ribbon-shadow-blur 0 $ribbon-shadow-color !default;
+
+$ribbon-text-color: #FFF !default;
+$ribbon-text-shadow: 0 -0.7px $ribbon-shadow-color !default;
+
+$ribbon-stitches-color: rgba(#FFF, 0.7) !default;
+$ribbon-stitches-padding: 0.3em !default;
+$ribbon-stitches-margin: 0.15em !default;
+$ribbon-stitch-width: 1px !default;
+$ribbon-vertical-indents-sum: 2 * ($ribbon-stitches-padding + $ribbon-stitches-margin);
+
+
+@mixin ribbon($color) {
+  display: inline-block;
+  margin: max($ribbon-shadow-blur, $ribbon-shadow-y-offset);
+
+  box-shadow: $ribbon-shadow;
+  background: {
+    color: $color;
+    image: linear-gradient(
+      to bottom,
+      rgba($ribbon-gradient-color, 0),
+      rgba($ribbon-gradient-color, 0.15)
+    );
+  }
+
+  color: white;
+  text-shadow: $ribbon-text-shadow;
+
+  & > .stitches {
+    display: inline-block;
+    padding: $ribbon-stitches-padding;
+    margin: $ribbon-stitches-margin;
+
+    border: {
+      width: 1px;
+      style: dashed;
+      color: $ribbon-stitches-color;
+    }
+  }
+}
