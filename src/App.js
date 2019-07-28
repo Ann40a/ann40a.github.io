@@ -6,8 +6,8 @@ import AppVersionRibbon from './features/app-version-ribbon';
 function App() {
   return (
     <>
-      <ViewCodeRibbon />
       <AppVersionRibbon />
+      <ViewCodeRibbon />
 
       <h1>About Me</h1>
       <h2>Anna Sorokina, Full stack web developer</h2>
